@@ -14,9 +14,4 @@ export default defineConfig({
     ".css": "copy",
   },
   outDir: "dist",
-  esbuildOptions(options) {
-    options.banner = {
-      js: '"use client";',
-    }
-  },
 })
