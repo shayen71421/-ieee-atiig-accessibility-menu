@@ -85,30 +85,32 @@ export function AccessibilityMenu({
     const isRight = position === "bottom-right"
     const offset = typeof positionOffset === "number" ? positionOffset : positionOffset.y
     return (
-      <button
-        className={`a11y-menu-button ${buttonClassName}`}
-        data-open={false}
-        data-right={isRight}
-        style={{
-          bottom: `${20 + offset}px`,
-          left: isRight ? undefined : `${20 + offset}px`,
-          right: isRight ? `${20 + offset}px` : undefined,
-          "--a11y-z": `${ssrZIndex.button}`,
-          "--a11y-gradient-from": ssrTheme.gradientFrom,
-          "--a11y-gradient-to": ssrTheme.gradientTo,
-          "--a11y-primary": ssrTheme.primary,
-        } as any}
-        aria-label={labelsProp?.menuButton || "Accessibility Menu"}
-        type="button"
-      >
-        <svg className="a11y-menu-button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="16" cy="4" r="1" />
-          <path d="m18 19 1-7-6 1" />
-          <path d="m5 8 3-3 5.5 3-2.36 3.5" />
-          <path d="M4.24 14.5a5 5 0 0 0 6.88 6" />
-          <path d="M13.76 17.5a5 5 0 0 0-6.88-6" />
-        </svg>
-      </button>
+      <div data-a11y-root>
+        <button
+          className={`a11y-menu-button ${buttonClassName}`}
+          data-open={false}
+          data-right={isRight}
+          style={{
+            bottom: `${20 + offset}px`,
+            left: isRight ? undefined : `${20 + offset}px`,
+            right: isRight ? `${20 + offset}px` : undefined,
+            "--a11y-z": `${ssrZIndex.button}`,
+            "--a11y-gradient-from": ssrTheme.gradientFrom,
+            "--a11y-gradient-to": ssrTheme.gradientTo,
+            "--a11y-primary": ssrTheme.primary,
+          } as any}
+          aria-label={labelsProp?.menuButton || "Accessibility Menu"}
+          type="button"
+        >
+          <svg className="a11y-menu-button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="16" cy="4" r="1" />
+            <path d="m18 19 1-7-6 1" />
+            <path d="m5 8 3-3 5.5 3-2.36 3.5" />
+            <path d="M4.24 14.5a5 5 0 0 0 6.88 6" />
+            <path d="M13.76 17.5a5 5 0 0 0-6.88-6" />
+          </svg>
+        </button>
+      </div>
     )
   }
 
@@ -136,7 +138,7 @@ export function AccessibilityMenu({
   }
 
   return (
-    <>
+    <div data-a11y-root>
       {settings.readingAid && (
         <ReadingAid
           mouseY={mousePos.y}
@@ -382,7 +384,7 @@ export function AccessibilityMenu({
           </div>
         </>
       )}
-    </>
+    </div>
   )
 }
 

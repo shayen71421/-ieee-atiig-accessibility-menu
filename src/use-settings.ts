@@ -6,13 +6,16 @@ function applyRootClasses(settings: AccessibilitySettings) {
   if (typeof document === "undefined") return
   const root = document.documentElement
 
-  ALL_ROOT_CLASSES.forEach((cls) => root.classList.remove(cls))
+  ALL_ROOT_CLASSES.forEach((cls) => {
+    root.classList.remove(cls)
+    document.body.classList.remove(cls)
+  })
 
   if (settings.fontSize > 0) root.classList.add(`a11y-font-size-${settings.fontSize}`)
   if (settings.lineHeight > 0) root.classList.add(`a11y-line-height-${settings.lineHeight}`)
   if (settings.textAlign !== "off") root.classList.add(`a11y-align-${settings.textAlign}`)
   if (settings.dyslexicFont) root.classList.add("a11y-dyslexic-font")
-  if (settings.grayscale) root.classList.add("a11y-grayscale")
+  if (settings.grayscale) document.body.classList.add("a11y-grayscale")
   if (settings.stopAnimations) root.classList.add("a11y-stop-animations")
   if (settings.bigCursor) root.classList.add("a11y-big-cursor")
 }
