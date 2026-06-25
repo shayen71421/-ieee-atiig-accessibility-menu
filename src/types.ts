@@ -84,6 +84,7 @@ export interface AccessibilityMenuProps {
   showBigCursor?: boolean
   showStopAnimations?: boolean
   theme?: Partial<ThemeColors>
+  ssr?: boolean
 }
 
 export interface AccessibilityToggleProps {

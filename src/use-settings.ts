@@ -3,6 +3,7 @@ import type { AccessibilitySettings } from "./types"
 import { DEFAULT_SETTINGS, ALL_ROOT_CLASSES } from "./types"
 
 function applyRootClasses(settings: AccessibilitySettings) {
+  if (typeof document === "undefined") return
   const root = document.documentElement
 
   ALL_ROOT_CLASSES.forEach((cls) => root.classList.remove(cls))

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useIsMobile } from "./use-is-mobile"
 import { useMousePosition } from "./use-mouse-position"
 import { useSettings } from "./use-settings"
@@ -76,7 +76,11 @@ export function AccessibilityMenu({
   showBigCursor = true,
   showStopAnimations = true,
   theme: themeProp,
+  ssr = false,
 }: AccessibilityMenuProps) {
+  const [isClient, setIsClient] = useState(false)
+  useEffect(() => { setIsClient(true) }, [])
+
   useInjectStyles(styles)
 
   const [isOpen, setIsOpen] = useState(false)
@@ -87,6 +91,8 @@ export function AccessibilityMenu({
     initialSettings,
     onSettingsChange,
   )
+
+  if (ssr && !isClient) return null
 
   const labels = { ...DEFAULT_LABELS, ...labelsProp }
   const zIndex = { ...DEFAULT_Z_INDEX, ...zIndexProp }
