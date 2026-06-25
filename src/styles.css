@@ -88,7 +88,7 @@
 
 .a11y-menu-button {
   position: fixed;
-  z-index: 60;
+  z-index: var(--a11y-z, 60);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,6 +99,12 @@
   cursor: pointer;
   color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  background: linear-gradient(
+    135deg,
+    var(--a11y-gradient-from, #023a74),
+    var(--a11y-gradient-to, #01a0a0)
+  );
+  box-shadow: 0 4px 30px rgba(2, 58, 116, 0.28);
 }
 
 .a11y-menu-button:hover {
@@ -111,6 +117,8 @@
 
 .a11y-menu-button[data-open="true"] {
   transform: rotate(180deg);
+  background: var(--a11y-primary, #0d6ead);
+  box-shadow: 0 10px 20px rgba(2, 58, 116, 0.3);
 }
 
 .a11y-menu-button-icon {

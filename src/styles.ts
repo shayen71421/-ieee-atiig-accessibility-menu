@@ -57,13 +57,22 @@ export const styles = `
 }
 
 .a11y-menu-button {
-  position: fixed; z-index: 60; display: flex; align-items: center; justify-content: center;
+  position: fixed;
+  z-index: var(--a11y-z, 60);
+  display: flex; align-items: center; justify-content: center;
   width: 56px; height: 56px; border: none; border-radius: 50%; cursor: pointer;
-  color: #fff; transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  background: linear-gradient(135deg, var(--a11y-gradient-from, #023A74), var(--a11y-gradient-to, #01A0A0));
+  box-shadow: 0 4px 30px rgba(2, 58, 116, 0.28);
 }
 .a11y-menu-button:hover { transform: scale(1.1); }
 .a11y-menu-button:active { transform: scale(0.95); }
-.a11y-menu-button[data-open="true"] { transform: rotate(180deg); }
+.a11y-menu-button[data-open="true"] {
+  transform: rotate(180deg);
+  background: var(--a11y-primary, #0D6EAD);
+  box-shadow: 0 10px 20px rgba(2, 58, 116, 0.3);
+}
 .a11y-menu-button-icon { width: 24px; height: 24px; }
 
 .a11y-menu-overlay {

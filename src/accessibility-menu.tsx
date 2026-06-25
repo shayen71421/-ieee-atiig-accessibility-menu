@@ -86,19 +86,18 @@ export function AccessibilityMenu({
     const offset = typeof positionOffset === "number" ? positionOffset : positionOffset.y
     return (
       <button
-        suppressHydrationWarning
         className={`a11y-menu-button ${buttonClassName}`}
         data-open={false}
         data-right={isRight}
         style={{
-          position: "fixed",
           bottom: `${20 + offset}px`,
           left: isRight ? undefined : `${20 + offset}px`,
           right: isRight ? `${20 + offset}px` : undefined,
-          zIndex: ssrZIndex.button,
-          background: `linear-gradient(135deg, ${ssrTheme.gradientFrom}, ${ssrTheme.gradientTo})`,
-          boxShadow: `0 4px 30px rgba(2, 58, 116, 0.28)`,
-        }}
+          "--a11y-z": `${ssrZIndex.button}`,
+          "--a11y-gradient-from": ssrTheme.gradientFrom,
+          "--a11y-gradient-to": ssrTheme.gradientTo,
+          "--a11y-primary": ssrTheme.primary,
+        } as any}
         aria-label={labelsProp?.menuButton || "Accessibility Menu"}
         type="button"
       >
@@ -156,14 +155,11 @@ export function AccessibilityMenu({
           bottom: `${20 + offsetNum}px`,
           left: isRight ? undefined : `${20 + offsetNum}px`,
           right: isRight ? `${20 + offsetNum}px` : undefined,
-          zIndex: zIndex.button,
-          background: isOpen
-            ? theme.primary
-            : `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`,
-          boxShadow: isOpen
-            ? `0 10px 20px rgba(2, 58, 116, 0.3)`
-            : `0 4px 30px rgba(2, 58, 116, 0.28)`,
-        }}
+          "--a11y-z": `${zIndex.button}`,
+          "--a11y-gradient-from": theme.gradientFrom,
+          "--a11y-gradient-to": theme.gradientTo,
+          "--a11y-primary": theme.primary,
+        } as any}
         aria-label={labels.menuButton}
         type="button"
       >
