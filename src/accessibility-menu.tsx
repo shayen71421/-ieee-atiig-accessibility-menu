@@ -78,7 +78,7 @@ export function AccessibilityMenu({
   theme: themeProp,
   ssr = false,
 }: AccessibilityMenuProps) {
-  if (typeof window === "undefined") return null
+  if (typeof window === "undefined") return <div style={{ display: "none" }} />
 
   useInjectStyles(styles)
 
