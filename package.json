@@ -16,17 +16,23 @@
   ],
   "license": "MIT",
   "author": {
-    "name": "Shayen71421",
-    "url": "https://github.com/shayen71421"
+    "name": "IEEE ATII",
+    "url": "https://github.com/IEEE-ATII"
   },
+  "contributors": [
+    {
+      "name": "Shayen71421",
+      "url": "https://github.com/shayen71421"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shayen71421/ieee-atiig-accessibility-menu.git"
+    "url": "git+https://github.com/IEEE-ATII/ieee-atiig-accessibility-menu.git"
   },
   "bugs": {
-    "url": "https://github.com/shayen71421/ieee-atiig-accessibility-menu/issues"
+    "url": "https://github.com/IEEE-ATII/ieee-atiig-accessibility-menu/issues"
   },
-  "homepage": "https://github.com/shayen71421/ieee-atiig-accessibility-menu#readme",
+  "homepage": "https://github.com/IEEE-ATII/ieee-atiig-accessibility-menu#readme",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
